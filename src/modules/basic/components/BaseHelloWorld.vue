@@ -11,5 +11,4 @@ const props = defineProps<Props>();
 </template>
 
 <style lang="less">
-
 </style>

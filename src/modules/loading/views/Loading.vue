@@ -1,7 +1,6 @@
 ﻿<script lang="ts" setup>
 import { useContainer } from "../../../use/container";
 import { usePromise } from "../../../use/promise";
-import BaseLoading from "../components/BaseLoading.vue";
 import { DataService } from "../../../services/DataService";
 
 const dataService = useContainer(DataService);
@@ -22,6 +21,18 @@ async function onReloadClick() {
         
         <div class="col-xs-12">
           <button @click="onReloadClick()">Reload data</button>
+        </div>
+        
+        <div class="col-xs-12">
+          <base-info>
+            <div>
+              Das zentrale Element ist &lt;base-loading&gt; in Kombination mit der Composable Function "usePromise".
+            </div>
+            <div>
+              Die "usePromise" gibt eine Reihe von reaktiven Eigenschaften zurück wie u.a. "promise", "result", "reload", die einfach
+              gebunden werden können.
+            </div>
+          </base-info>
         </div>
       </div>
     </base-loading>

@@ -29,8 +29,15 @@ const localizationService = useContainer(LocalizationService);
     </div>
     
     <div class="col-xs-12">
-      Das aktualisieren der Directiven wird mit einem kleinen Hack gemacht. In der App.vue ist bei .app__container ein :key mit der
-      Culture definiert. Dadurch, dass sich der Wert ändert, wird ein Rerendering ausgelöst.      
+      <base-info>
+        <div>
+          Das aktualisieren der Directiven wird mit einem kleinen Hack gemacht. In der App.vue ist bei .app__container ein :key mit der
+          Culture definiert. Dadurch, dass sich der Wert ändert, wird ein Rerendering ausgelöst.  
+        </div>
+        <div>
+          Weiters zeigt es die Verwendung von Methoden, die in den globalProperties zur Verfügung gestellt werden.
+        </div>
+      </base-info>
     </div>
   </div>
 </template>

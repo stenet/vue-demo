@@ -2,7 +2,7 @@
 import { computed, ref, watchEffect } from "vue";
 
 type Props = {
-  promise: Promise<any>
+  promise?: Promise<any>
 }
 
 enum State {
@@ -48,9 +48,8 @@ class PromiseResolver {
 }
 
 const props = defineProps<Props>();
-const state = ref(State.loading);
+const state = ref(props.promise ? State.loading : State.finish);
 const resolver = new PromiseResolver(s => state.value = s);
-const has = computed(() => !!props.promise);
 
 watchEffect(() => {
   resolver.setPromise(props.promise);
@@ -59,7 +58,7 @@ watchEffect(() => {
 </script>
 
 <template>
-  <div v-if="has" class="base-loading">
+  <div class="base-loading">
     <div v-if="state === 0" class="base-loading__active">
       <div>
         Daten werden geladen

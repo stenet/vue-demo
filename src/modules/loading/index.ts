@@ -1,5 +1,6 @@
 ﻿import { Plugin } from "vue";
 import { AddRoutes } from "../../routes";
+import BaseLoading from "./components/BaseLoading.vue";
 
 export function createLoadingPlugin(options: ILoadingOptions): Plugin {
   options.addRoutes({
@@ -13,6 +14,7 @@ export function createLoadingPlugin(options: ILoadingOptions): Plugin {
   
   return {
     install(app) {
+      app.component("base-loading", BaseLoading)
     }
   };
 }

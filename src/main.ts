@@ -4,9 +4,13 @@ import App from "./App.vue";
 import { Container } from "./di";
 import { createAuthPlugin } from "./modules/auth";
 import { createBasicPlugin } from "./modules/basic";
+import { createDevExpressPlugin } from "./modules/devexpress";
+import { createEventsPlugin } from "./modules/events";
+import { createLifecyclePlugin } from "./modules/lifecycle";
 import { createLoadingPlugin } from "./modules/loading";
 import { createLocalizationPlugin } from "./modules/localization";
 import { createSlotsPlugin } from "./modules/slots";
+import { createTemplatingPlugin } from "./modules/templating";
 import { Routes } from "./routes";
 
 import "./normalize.less";
@@ -39,6 +43,22 @@ const localizationPlugin = createLocalizationPlugin({
   addRoutes: routes.addRoutes
 });
 
+const devExpressPlugin = createDevExpressPlugin({
+  addRoutes: routes.addRoutes
+});
+
+const templatingPlugin = createTemplatingPlugin({
+  addRoutes: routes.addRoutes
+});
+
+const eventsPlugin = createEventsPlugin({
+  addRoutes: routes.addRoutes
+});
+
+const lifecyclePlugin = createLifecyclePlugin({
+  addRoutes: routes.addRoutes
+});
+
 //Router
 let backRoute: any = null;
 window.addEventListener(
@@ -67,4 +87,7 @@ createApp(App)
   .use(loadingPlugin)
   .use(slotsPlugin)
   .use(localizationPlugin)
+  .use(devExpressPlugin)
+  .use(templatingPlugin)
+  .use(lifecyclePlugin)
   .mount("#app");

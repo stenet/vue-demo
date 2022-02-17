@@ -14,9 +14,13 @@
       <base-hello-world
         :message="message"></base-hello-world>
     </div>
+    <div class="col-xs-12">
+      <base-info>
+        Hier wird gezeigt, wie eine Komponente (in diesem Fall &lt;base-hello-world&gt;) inkl. Properties verwendet wird.
+      </base-info>
+    </div>
   </div>
 </template>
 
-<style scoped>
-
+<style lang="less">
 </style>

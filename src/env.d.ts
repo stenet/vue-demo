@@ -1,4 +1,5 @@
 /// <reference types="vite/client" />
+/// <reference types="devextreme/dist/ts/dx.all"/>
 
 declare module '*.vue' {
   import type { DefineComponent } from 'vue'

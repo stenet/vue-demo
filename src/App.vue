@@ -18,16 +18,20 @@ const routes = computed(() => {
 <template>
   <div class="app__container caption--left" :key="localizationService.culture">
     <div class="app__nav">
-      <template v-for="route in routes">
-        <router-link :to="route.path">{{ route.name }}</router-link>
-      </template>
+      <img src="./assets/logo.png" height="25">
+      
+      <div>
+        <template v-for="route in routes">
+          <router-link :to="route.path">{{ route.name }}</router-link>
+        </template>
+      </div>
     </div>
 
     <div class="app__router">
       <router-view v-slot="{ Component, route }">
         <transition :name="route.meta.transitionName" mode="out-in">
           <keep-alive max="2">
-            <component :is="Component"/>
+            <component :is="Component" v-grid-size/>
           </keep-alive>
         </transition>
       </router-view>
@@ -40,13 +44,22 @@ const routes = computed(() => {
   font-family: "Helvetica Neue", "Segoe UI", helvetica, verdana, sans-serif;
   font-size: 14px;
   padding: 1rem;
+  max-width: 1024px;
+  margin: 0 auto;
 }
 
 .app__nav {
-  display: flex;
-  gap: .5rem;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 2rem;
   padding-bottom: 1rem;
   border-bottom: 1px solid #ddd;
+  
+  > div {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem;
+  }
 
   a {
     padding: .25rem .5rem;
