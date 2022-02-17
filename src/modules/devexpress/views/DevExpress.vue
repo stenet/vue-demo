@@ -151,7 +151,13 @@ function onChangeColumnNameMarkupClick() {
     
     <div class="col-xs-12">
       <base-info>
-        Verwendung von unterschiedlichen DevExpress-Komponenten wie dxTextBox, dxDataGrid, dxButton, ...
+        <div>
+          Verwendung von unterschiedlichen DevExpress-Komponenten wie dxTextBox, dxDataGrid, dxButton, ...
+        </div>
+        <div>
+          Die Unterstützung für DevExpress in TypeScript ist als Referenz in der env.d.ts. Weiters muss in der vite.config.ts
+          das Treeshaking deaktiviert werden, da es lt. aktuellem Stand zu Probleme mit DX kommt.
+        </div>
       </base-info>
     </div>
   </div>

@@ -98,6 +98,10 @@ const context = {
           Damit können auch andere Komponenten eingebunden werden. Solche die nicht global registriert sind, müssen allerdings
           wie gewohnt übergeben werden.
         </div>
+        <div>
+          Wichtig hierfür ist, dass in der vite.config.ts unter resolve =&gt; alias "vue" konfiguriert ist, da ansonsten der Template-Compiler
+          nicht Teil des Bundles ist und die Funktionalität im Produktiv-Bundle nicht verfügbar ist.
+        </div>
       </base-info>
     </div>
   </div>
