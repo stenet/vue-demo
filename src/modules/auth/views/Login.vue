@@ -33,7 +33,7 @@ async function onLogoutClick() {
         <div class="col-xs-12" data-caption="Passwort">
           <input type="text" v-model="model.password">
         </div>
-        <div class="col-xs-12" data-caption="Benutzer">
+        <div class="col-xs-12">
           <button @click="onLoginClick()">Login</button>
         </div>
       </template>

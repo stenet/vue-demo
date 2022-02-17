@@ -1,4 +1,25 @@
-﻿@media (min-device-width: 500px) {
+﻿html, body, button, input, textarea, select {
+  font-family: "Helvetica Neue", "Segoe UI", helvetica, verdana, sans-serif;
+  font-size: 16px;
+}
+input, button {
+  border: 1px solid #bbb;
+  border-radius: .25rem;
+  outline: none;
+  
+  &:focus, &:active {
+    border-color: #666;
+  }
+}
+button {
+  cursor: pointer;
+  padding: .5rem 1rem;
+}
+input {
+  padding: .25rem .5rem;
+}
+
+@media (min-device-width: 500px) {
   .caption--left *:not(.caption--top) {
     *[data-caption] {
       display: flex;

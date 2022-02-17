@@ -41,8 +41,6 @@ const routes = computed(() => {
 
 <style lang="less">
 .app__container {
-  font-family: "Helvetica Neue", "Segoe UI", helvetica, verdana, sans-serif;
-  font-size: 14px;
   padding: 1rem;
   max-width: 1024px;
   margin: 0 auto;
@@ -54,23 +52,32 @@ const routes = computed(() => {
   gap: 2rem;
   padding-bottom: 1rem;
   border-bottom: 1px solid #ddd;
+  align-items: center;
   
   > div {
     display: flex;
     flex-wrap: wrap;
-    gap: .5rem;
+    gap: 2px;
   }
 
   a {
-    padding: .25rem .5rem;
-    border-radius: .25rem;
-    background-color: #ddd;
+    padding: .5rem 1rem;
+    background-color: #eee;
     text-decoration: none;
-    color: #333;
+    color: #666;
     font-weight: bold;
+    border-top: 3px solid transparent;
+    border-bottom: 3px solid transparent;
+    text-transform: uppercase;
+    font-size: 0.7rem;
     
+    &.router-link-active {
+      border-bottom-color: #333;
+      color: #333;
+    }
     &:hover {
       background-color: #ccc;
+      color: #333;
     }
   }
 }

@@ -18,6 +18,7 @@
   gap: 1rem;
   padding: .5rem;
   border-radius: .5rem;
+  border: 1px solid #c5e7d5;
   align-items: center;
   background-color: #e7f5ee;
   color: #18a058;
