@@ -1,11 +1,12 @@
 ﻿html, body, button, input, textarea, select {
   font-family: "Helvetica Neue", "Segoe UI", helvetica, verdana, sans-serif;
-  font-size: 16px;
+  font-size: 14px;
 }
 input, button {
   border: 1px solid #bbb;
   border-radius: .25rem;
   outline: none;
+  padding: .25rem .5rem;
   
   &:focus, &:active {
     border-color: #666;
@@ -13,10 +14,7 @@ input, button {
 }
 button {
   cursor: pointer;
-  padding: .5rem 1rem;
-}
-input {
-  padding: .25rem .5rem;
+  padding: .25rem 1rem;
 }
 
 @media (min-device-width: 500px) {
@@ -48,7 +46,7 @@ input {
   content: attr(data-caption);
   display: block;
   margin-bottom: .15rem;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   font-weight: bold;
   color: #333;
 }

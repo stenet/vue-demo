@@ -18,7 +18,9 @@ const routes = computed(() => {
 <template>
   <div class="app__container caption--left" :key="localizationService.culture">
     <div class="app__nav">
-      <img src="./assets/logo.png" height="25">
+      <div class="app__logo">
+        <img src="./assets/logo.png">
+      </div>
       
       <div>
         <template v-for="route in routes">
@@ -49,9 +51,9 @@ const routes = computed(() => {
 .app__nav {
   display: grid;
   grid-template-columns: auto 1fr;
-  gap: 2rem;
-  padding-bottom: 1rem;
-  border-bottom: 1px solid #ddd;
+  padding: 2px 0;
+  border-top: 3px solid #ddd;
+  border-bottom: 3px solid #ddd;
   align-items: center;
   
   > div {
@@ -69,7 +71,7 @@ const routes = computed(() => {
     border-top: 3px solid transparent;
     border-bottom: 3px solid transparent;
     text-transform: uppercase;
-    font-size: 0.7rem;
+    font-size: 0.8rem;
     
     &.router-link-active {
       border-bottom-color: #333;
@@ -79,6 +81,17 @@ const routes = computed(() => {
       background-color: #ccc;
       color: #333;
     }
+  }
+}
+
+.app__logo {
+  display: flex;
+  justify-content: center;
+  width: 50px;
+  
+  img {
+    height: 25px;
+    object-fit: contain;
   }
 }
 
