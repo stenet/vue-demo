@@ -1,7 +1,7 @@
 ﻿import { ref, UnwrapRef } from "vue";
 
-export function usePromise<T>(promise: Promise<T>) {
-  const p = ref<Promise<T>>(promise);
+export function usePromise<T>(promise?: Promise<T>) {
+  const p = ref<Promise<T> | undefined>(promise);
   const result = ref<T | null>();
   const isRunning = ref();
   const error = ref<Error | null>();
@@ -21,7 +21,9 @@ export function usePromise<T>(promise: Promise<T>) {
     });
   } 
   
-  reload(promise);
+  if (promise) {
+    reload(promise);
+  }
   
   return  {
     promise: p,

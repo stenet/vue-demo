@@ -3,9 +3,9 @@ import { ref, watchEffect } from "vue";
 import { FetchService } from "../../../services/fetch-service";
 import { useContainer } from "../../../use/container";
 import notify from "devextreme/ui/notify";
+import { usePromise } from "../../../use/promise";
 
 const url = ref<string>("https://api.predic8.de/shop/products/");
-const data = ref<object>();
 
 function onShowProductsClick() {
   url.value = "https://api.predic8.de/shop/products/";
@@ -23,11 +23,13 @@ function onShowErrorClick() {
 const fetchService = useContainer(FetchService);
 let abortController: AbortController;
 
+const { promise, result, reload } = usePromise();
+
 watchEffect(async () => {
   abortController?.abort();
   abortController = new AbortController();
 
-  data.value = await fetchService.get({
+  reload(fetchService.get({
     url: url.value,
     abortSignal: abortController.signal,
     timeout: 500,
@@ -35,7 +37,7 @@ watchEffect(async () => {
       notify(response.statusText, "error", 3000);
       return true;
     }
-  });
+  }));
 });
 
 </script>
@@ -58,7 +60,11 @@ watchEffect(async () => {
       <button @click="onShowErrorClick()">Show error</button>
     </div>
 
-    <div class="col-xs-12 json" v-html="JSON.stringify(data)">
+    <div class="col-xs-12">
+      <base-loading :promise="promise">
+        <div class="json" v-html="JSON.stringify(result)">
+        </div>
+      </base-loading>
     </div>
 
     <div class="col-xs-12">
