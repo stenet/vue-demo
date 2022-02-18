@@ -6,6 +6,7 @@ import { createAuthPlugin } from "./modules/auth";
 import { createBasicPlugin } from "./modules/basic";
 import { createDevExpressPlugin } from "./modules/devexpress";
 import { createEventsPlugin } from "./modules/events";
+import { createFetchingPlugin } from "./modules/fetching";
 import { createLifecyclePlugin } from "./modules/lifecycle";
 import { createLoadingPlugin } from "./modules/loading";
 import { createLocalizationPlugin } from "./modules/localization";
@@ -59,6 +60,10 @@ const lifecyclePlugin = createLifecyclePlugin({
   addRoutes: routes.addRoutes
 });
 
+const fetchingPlugin = createFetchingPlugin({
+  addRoutes: routes.addRoutes
+});
+
 //Router
 let backRoute: any = null;
 window.addEventListener(
@@ -88,6 +93,8 @@ createApp(App)
   .use(slotsPlugin)
   .use(localizationPlugin)
   .use(devExpressPlugin)
+  .use(eventsPlugin)
   .use(templatingPlugin)
   .use(lifecyclePlugin)
+  .use(fetchingPlugin)
   .mount("#app");

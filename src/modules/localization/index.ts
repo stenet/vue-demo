@@ -1,6 +1,6 @@
 ﻿import { Plugin } from "vue";
 import { AddRoutes } from "../../routes";
-import { LocalizationService } from "../../services/LocalizationService";
+import { LocalizationService } from "../../services/localization-service";
 import { useContainer } from "../../use/container";
 import TranslateDirective from "./directives/translate-directive";
 

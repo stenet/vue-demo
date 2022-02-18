@@ -1,4 +1,4 @@
-﻿export class GridSizeService {
+﻿export class GridWidthService {
   private readonly WIDTH_XS = 768;
   private readonly WIDTH_SM = 992;
   private readonly WIDTH_MD = 1200;
@@ -8,6 +8,22 @@
   
   constructor() {
     this._observer = new ResizeObserver(this.updateGridSize.bind(this));
+  }
+  
+  isXS(width: number) {
+    return true;
+  }
+  isSM(width: number) {
+    return width >= this.WIDTH_XS;
+  }
+  isMD(width: number) {
+    return width >= this.WIDTH_SM;
+  }
+  isLG(width: number) {
+    return width >= this.WIDTH_MD;
+  }
+  isXL(width: number) {
+    return width >= this.WIDTH_LG;
   }
   
   observe(el: HTMLElement) {
@@ -32,25 +48,25 @@
   private updateElement(target: Element, width: number) {
     target.classList.add("gr-xs");
     
-    if (width >= this.WIDTH_XS) {
+    if (this.isSM(width)) {
       target.classList.add("gr-sm");
     } else {
       target.classList.remove("gr-sm");
     }
 
-    if (width >= this.WIDTH_SM) {
+    if (this.isMD(width)) {
       target.classList.add("gr-md");
     } else {
       target.classList.remove("gr-md");
     }
 
-    if (width >= this.WIDTH_MD) {
+    if (this.isLG(width)) {
       target.classList.add("gr-lg");
     } else {
       target.classList.remove("gr-lg");
     }
 
-    if (width >= this.WIDTH_LG) {
+    if (this.isXL(width)) {
       target.classList.add("gr-xl");
     } else {
       target.classList.remove("gr-xl");

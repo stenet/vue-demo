@@ -1,6 +1,6 @@
 ﻿import { Directive } from "vue";
 import { Container } from "../../../di";
-import { GridSizeService } from "../../../services/GridSizeService";
+import { GridWidthService } from "../../../services/grid-width-service";
 
 export default <Directive>{
   mounted(el: HTMLElement, binding) {
@@ -9,8 +9,8 @@ export default <Directive>{
     }
     
     const container: Container = binding.instance.$.appContext.provides.container;
-    const gridSizeService = container.get(GridSizeService);
-    gridSizeService.observe(el);
+    const gridWidthService = container.get(GridWidthService);
+    gridWidthService.observe(el);
   },
   unmounted(el: HTMLElement, binding) {
     if (!binding.instance) {
@@ -18,7 +18,7 @@ export default <Directive>{
     }
 
     const container: Container = binding.instance.$.appContext.provides.container;
-    const gridSizeService = container.get(GridSizeService);
-    gridSizeService.unobserve(el);    
+    const gridWidthService = container.get(GridWidthService);
+    gridWidthService.unobserve(el);    
   }
 };

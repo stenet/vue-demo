@@ -1,6 +1,6 @@
 ﻿import { Directive } from "vue";
 import { Container } from "../../../di";
-import { LocalizationService } from "../../../services/LocalizationService";
+import { LocalizationService } from "../../../services/localization-service";
 
 export default <Directive>{
   mounted(el, binding) {    

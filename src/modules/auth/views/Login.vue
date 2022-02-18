@@ -1,6 +1,6 @@
 ﻿<script lang="ts" setup>
 import { ref } from "vue";
-import { AuthService } from "../../../services/AuthService";
+import { AuthService } from "../../../services/auth-service";
 import { useContainer } from "../../../use/container";
   
 const model = ref(<{

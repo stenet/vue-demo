@@ -1,5 +1,5 @@
 ﻿<script lang="ts" setup>
-import { LocalizationService } from "../../../services/LocalizationService";
+import { LocalizationService } from "../../../services/localization-service";
 import { useContainer } from "../../../use/container";
 
 const localizationService = useContainer(LocalizationService);

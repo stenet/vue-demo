@@ -1,7 +1,7 @@
 ﻿<script lang="ts" setup>
 import { useContainer } from "../../../use/container";
 import { usePromise } from "../../../use/promise";
-import { DataService } from "../../../services/DataService";
+import { DataService } from "../../../services/data-service";
 
 const dataService = useContainer(DataService);
 const { promise, result, reload } = usePromise(dataService.loadData());

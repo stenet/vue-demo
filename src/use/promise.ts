@@ -3,13 +3,13 @@
 export function usePromise<T>(promise: Promise<T>) {
   const p = ref<Promise<T>>(promise);
   const result = ref<T | null>();
-  const isLoading = ref();
+  const isRunning = ref();
   const error = ref<Error | null>();
   
   const reload = (newPromise: Promise<T>) => {
     p.value = newPromise;
     result.value = null;
-    isLoading.value = true;
+    isRunning.value = true;
     error.value = null;
     
     newPromise.then(c => {
@@ -17,7 +17,7 @@ export function usePromise<T>(promise: Promise<T>) {
     }).catch(e => {
       error.value = e;
     }).finally(() => {
-      isLoading.value = false;
+      isRunning.value = false;
     });
   } 
   
@@ -25,7 +25,7 @@ export function usePromise<T>(promise: Promise<T>) {
   
   return  {
     promise: p,
-    isLoading,
+    isRunning,
     error,
     result,
     reload

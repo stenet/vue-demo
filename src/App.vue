@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed } from "vue";
 import { useRouter } from "vue-router";
-import { LocalizationService } from "./services/LocalizationService";
+import { LocalizationService } from "./services/localization-service";
 import { useContainer } from "./use/container";
 
 const localizationService = useContainer(LocalizationService);
@@ -16,7 +16,7 @@ const routes = computed(() => {
 </script>
 
 <template>
-  <div class="app__container caption--left" :key="localizationService.culture">
+  <div class="app__container caption--left" :key="localizationService.culture" v-browser>
     <div class="app__nav">
       <div class="app__logo">
         <img src="./assets/logo.png">
@@ -39,7 +39,7 @@ const routes = computed(() => {
       <router-view v-slot="{ Component, route }">
         <transition :name="route.meta.transitionName" mode="out-in">
           <keep-alive max="2">
-            <component :is="Component" v-grid-size/>
+            <component :is="Component" v-grid-width/>
           </keep-alive>
         </transition>
       </router-view>

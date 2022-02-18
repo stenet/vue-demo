@@ -1,7 +1,8 @@
 ﻿import { Plugin } from "vue";
 import { AddRoutes } from "../../routes";
 import BaseInfo from "./components/BaseInfo.vue";
-import GridSizeDirective from "./directives/grid-size-directive";
+import GridWidthDirective from "./directives/grid-width-directive";
+import BrowserDirective from "./directives/browser-directive";
 
 export function createBasicPlugin(options: IBasicOptions): Plugin {
   options.addRoutes({
@@ -17,7 +18,8 @@ export function createBasicPlugin(options: IBasicOptions): Plugin {
   return {
     install(app) {
       app.component("base-info", BaseInfo);
-      app.directive("grid-size", GridSizeDirective);
+      app.directive("grid-width", GridWidthDirective);
+      app.directive("browser", BrowserDirective);
     }
   };
 }
