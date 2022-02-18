@@ -1,0 +1,1 @@
+import{r as l}from"./vendor.e6b44e87.js";function v(u){const r=l(u),e=l(),n=l(),a=l(),o=s=>{r.value=s,e.value=null,n.value=!0,a.value=null,s.then(t=>{e.value=t}).catch(t=>{a.value=t}).finally(()=>{n.value=!1})};return u&&o(u),{promise:r,isRunning:n,error:a,result:e,reload:o}}export{v as u};
