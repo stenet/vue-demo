@@ -193,7 +193,7 @@ function onChangeColumnNameMarkupClick() {
         </div>
         <div>
           Etwas spezielles ist die "v-tag-box-bind"-Direktive, da diese das Verhalten der TagBox, was den Value betrifft, verändert. Anstatt
-          nur ein Array von IDs kann mit ein Array von Objekten verwendet werden.
+          nur ein Array von IDs kann damit ein Array von Objekten verwendet werden.
         </div>
       </base-info>
     </div>
