@@ -16,7 +16,7 @@
   display: grid;
   grid-template-columns: auto 1fr;
   gap: 1rem;
-  padding: .5rem;
+  padding: 1rem;
   border-radius: .5rem;
   border: 1px solid #c5e7d5;
   align-items: center;
@@ -28,7 +28,7 @@
   }
   
   > div > div + div {
-    margin-top: 0.25rem;
+    margin-top: 1rem;
   }
 }
 </style>

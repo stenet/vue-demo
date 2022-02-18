@@ -28,6 +28,12 @@ const routes = computed(() => {
         </template>
       </div>
     </div>
+    
+    <div class="app__title">
+      <span>
+        {{ router.currentRoute.value.name }}
+      </span>  
+    </div>   
 
     <div class="app__router">
       <router-view v-slot="{ Component, route }">
@@ -52,8 +58,7 @@ const routes = computed(() => {
   display: grid;
   grid-template-columns: auto 1fr;
   padding: 2px 0;
-  border-top: 3px solid #ddd;
-  border-bottom: 3px solid #ddd;
+  border: 3px solid #ddd;
   align-items: center;
   
   > div {
@@ -63,6 +68,8 @@ const routes = computed(() => {
   }
 
   a {
+    flex-grow: 1;
+    text-align: center;
     padding: .5rem 1rem;
     background-color: #eee;
     text-decoration: none;
@@ -92,6 +99,29 @@ const routes = computed(() => {
   img {
     height: 25px;
     object-fit: contain;
+  }
+}
+
+.app__title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  color: #333;
+  
+  span {
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      height: 10px;
+      z-index: -1;
+      bottom: -4px;
+      left: 0;
+      right: -30px;
+      background-color: #41B883;
+    }
   }
 }
 

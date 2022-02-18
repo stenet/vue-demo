@@ -22,12 +22,21 @@ const textBoxButtonOptions = ref<DevExpress.ui.dxButton.Properties>({
   }
 });
 
+const tagBoxSelectedData = ref([]);
+const tagBoxSelectedDataWithBind = ref([{
+  IdPerson: 2
+}]);
+
 function onTextBoxButtonClick(ev: DevExpress.ui.dxButton.ClickEvent) {
   notify("Hello from the dxTextBox", "success", 3000);
 }
 
 const columnName = ref("Name");
-const data = [{ name: "Stefan" }];
+const data = [
+  { id: 1, name: "Anton" },
+  { id: 2, name: "Bertram" },
+  { id: 3, name: "Christof" },
+];
 const disabled = ref(false);
 
 function onChangeColumnNameSkriptClick() {
@@ -121,6 +130,30 @@ function onChangeColumnNameMarkupClick() {
         text="Mein Enabled/Disabled-Status kommt von der darüberliegenden dxCheckBox"
         :disabled="disabled"></dx-check-box>
     </div>
+
+    <div class="col-xs-12" data-caption="TagBox">
+      <dx-tag-box
+        :items="data"
+        value-expr="id"
+        display-expr="name"
+        v-model="tagBoxSelectedData"></dx-tag-box>
+    </div>
+
+    <div class="col-xs-12">
+      {{ JSON.stringify(tagBoxSelectedData) }}
+    </div>
+    
+    <div class="col-xs-12" data-caption="TagBox mit v-dx-tg-box-bind">
+      <dx-tag-box
+        :items="data"
+        value-expr="id"
+        display-expr="name"
+        v-dx-tag-box-bind="{ keyExpr: 'IdPerson', data: tagBoxSelectedDataWithBind }"></dx-tag-box>
+    </div>
+    
+    <div class="col-xs-12">
+      {{ JSON.stringify(tagBoxSelectedDataWithBind) }}
+    </div>
     
     <div class="col-xs-12" data-caption="Spalten in Skript">
       <dx-data-grid
@@ -157,6 +190,10 @@ function onChangeColumnNameMarkupClick() {
         <div>
           Die Unterstützung für DevExpress in TypeScript ist als Referenz in der env.d.ts. Weiters muss in der vite.config.ts
           das Treeshaking deaktiviert werden, da es lt. aktuellem Stand zu Probleme mit DX kommt.
+        </div>
+        <div>
+          Etwas spezielles ist die "v-tag-box-bind"-Direktive, da diese das Verhalten der TagBox, was den Value betrifft, verändert. Anstatt
+          nur ein Array von IDs kann mit ein Array von Objekten verwendet werden.
         </div>
       </base-info>
     </div>
