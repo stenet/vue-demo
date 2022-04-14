@@ -1,13 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" href="/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>Vue Demo</title>
-  </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.ts"></script>
-  </body>
+<head>
+  <meta charset="UTF-8"/>
+  <link rel="icon" href="/favicon.ico"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>Vue Demo</title>
+  <style>
+      .loading {
+          display: flex;
+          width: 100vw;
+          height: 100vh;
+          justify-content: center;
+          align-items: center;
+      }
+
+      .loading--typing {
+          position: relative;
+          left: -9999px;
+          width: 10px;
+          height: 10px;
+          border-radius: 5px;
+          background-color: #9880ff;
+          color: #9880ff;
+          box-shadow: 9984px 0 0 0 #9880ff, 9999px 0 0 0 #9880ff, 10014px 0 0 0 #9880ff;
+          animation: typing 1.5s infinite linear;
+      }
+
+      @keyframes typing {
+          0% {
+              box-shadow: 9984px 0 0 0 #9880ff, 9999px 0 0 0 #9880ff, 10014px 0 0 0 #9880ff;
+          }
+          16.667% {
+              box-shadow: 9984px -10px 0 0 #9880ff, 9999px 0 0 0 #9880ff, 10014px 0 0 0 #9880ff;
+          }
+          33.333% {
+              box-shadow: 9984px 0 0 0 #9880ff, 9999px 0 0 0 #9880ff, 10014px 0 0 0 #9880ff;
+          }
+          50% {
+              box-shadow: 9984px 0 0 0 #9880ff, 9999px -10px 0 0 #9880ff, 10014px 0 0 0 #9880ff;
+          }
+          66.667% {
+              box-shadow: 9984px 0 0 0 #9880ff, 9999px 0 0 0 #9880ff, 10014px 0 0 0 #9880ff;
+          }
+          83.333% {
+              box-shadow: 9984px 0 0 0 #9880ff, 9999px 0 0 0 #9880ff, 10014px -10px 0 0 #9880ff;
+          }
+          100% {
+              box-shadow: 9984px 0 0 0 #9880ff, 9999px 0 0 0 #9880ff, 10014px 0 0 0 #9880ff;
+          }
+      }
+  </style>
+</head>
+<body>
+<div id="app">
+  <div class="loading">
+    <div class="loading--typing">
+      Go
+    </div>
+  </div>
+</div>
+<script type="module" src="/src/main.ts"></script>
+</body>
 </html>
